@@ -1,3 +1,4 @@
+import DeleteButton from '@/components/DeleteButton'
 import Todoinput from '@/components/TodoInput'
 import db from '@/db/db'
 
@@ -12,22 +13,41 @@ export default async function Home() {
         </h1>
         <Todoinput />
         <h1 className="font-bold text-2xl text-gray-800">Existing Todos</h1>
-        <div className="w-full space-y-4">
-          {allTodos.map((todo) => (
-            <div key={todo.id}>
-              <h2 className="text-lg font-medium text-gray-700">
-                {todo.title}
-              </h2>
-              <h3
-                className={`text-sm mt-1 ${
-                  todo.completed ? 'text-green-600' : 'text-red-600'
-                }`}
-              >
-                {todo.completed ? 'Completed' : 'Imcompleted'}
-              </h3>
-              <span className="text-gray-400">----</span>
-            </div>
-          ))}
+        <div className="w-full overflow-x-auto">
+          <table className="min-w-full bg-white shadow-md rounded-lg">
+            <thead>
+              <tr>
+                <th className="py-3 px-6 bf-gray-200 text-gray-600 font-bold uppercase text-sm text-left">
+                  Todos
+                </th>
+                <th className="py-3 px-6 bf-gray-200 text-gray-600 font-bold uppercase text-sm text-left">
+                  Status
+                </th>
+                <th className="py-3 px-6 bf-gray-200 text-gray-600 font-bold uppercase text-sm text-left">
+                  Delete
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {allTodos.map((todo) => (
+                <tr key={todo.id}>
+                  <td className="py-4 px-6 text-gray-700 text-sm">
+                    {todo.title}
+                  </td>
+                  <td
+                    className={`py-4 px-6 text-sm font-medium ${
+                      todo.completed ? 'text-green-600' : 'text-red-600'
+                    }`}
+                  >
+                    {todo.completed ? 'Completed' : 'Imcompleted'}
+                  </td>
+                  <td className="py-4 px-6 text-center">
+                    <DeleteButton id={todo.id} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </main>

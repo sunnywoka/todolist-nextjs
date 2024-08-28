@@ -8,3 +8,13 @@ export const addTodos = async (todo: string) => {
   })
   return result
 }
+
+export const deleteTodos = async (id: string) => {
+  const result = await db.todo.delete({
+    where: {
+      id: id,
+    },
+  })
+
+  return result
+}
