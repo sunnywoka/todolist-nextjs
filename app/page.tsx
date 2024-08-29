@@ -1,5 +1,6 @@
 import DeleteButton from '@/components/DeleteButton'
 import Todoinput from '@/components/TodoInput'
+import TodoStatus from '@/components/TodoStatus'
 import db from '@/db/db'
 
 export default async function Home() {
@@ -7,7 +8,7 @@ export default async function Home() {
 
   return (
     <main>
-      <div className="flex flex-col items-start justify-start gap-6 p-6 max-w-md mx-auto bg-white shadow-lg rounded-lg">
+      <div className="flex flex-col items-start justify-start gap-6 p-6 max-w-lg mx-auto bg-white shadow-lg rounded-lg">
         <h1 className="text-4xl font-extrabold text-center text-blue-600 my-6">
           Todo List
         </h1>
@@ -34,13 +35,7 @@ export default async function Home() {
                   <td className="py-4 px-6 text-gray-700 text-sm">
                     {todo.title}
                   </td>
-                  <td
-                    className={`py-4 px-6 text-sm font-medium ${
-                      todo.completed ? 'text-green-600' : 'text-red-600'
-                    }`}
-                  >
-                    {todo.completed ? 'Completed' : 'Imcompleted'}
-                  </td>
+                  <TodoStatus id={todo.id} completed={todo.completed} />
                   <td className="py-4 px-6 text-center">
                     <DeleteButton id={todo.id} />
                   </td>
