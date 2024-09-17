@@ -1,14 +1,19 @@
-import DeleteButton from '@/components/DeleteButton'
-import Todoinput from '@/components/TodoInput'
-import TodoStatus from '@/components/TodoStatus'
+// import DeleteButton from '@/components/DeleteButton'
+// import Todoinput from '@/components/TodoInput'
+// import TodoStatus from '@/components/TodoStatus'
+
+import FetchButton from '@/components/FetchButton'
+import { Button } from '@/components/ui/button'
 import db from '@/db/db'
+import { fetchData } from '@/db/fetchData'
 
 export default async function Home() {
-  const allTodos = await db.todo.findMany()
+  //const allTodos = await db.todo.findMany()
 
   return (
     <main>
-      <div className="flex flex-col items-start justify-start gap-6 p-6 max-w-lg mx-auto bg-white shadow-lg rounded-lg">
+      <FetchButton />
+      {/* <div className="flex flex-col items-start justify-start gap-6 p-6 max-w-lg mx-auto bg-white shadow-lg rounded-lg">
         <h1 className="text-4xl font-extrabold text-center text-blue-600 my-6">
           Todo List
         </h1>
@@ -44,7 +49,8 @@ export default async function Home() {
             </tbody>
           </table>
         </div>
-      </div>
+      </div> */}
+      <div>Hello</div>
     </main>
   )
 }
