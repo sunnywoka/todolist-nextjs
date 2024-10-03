@@ -3,6 +3,7 @@
 // import TodoStatus from '@/components/TodoStatus'
 
 import FetchButton from '@/components/FetchButton'
+import FetchButtonTemplate from '@/components/FetchButtonTemplate'
 import { Button } from '@/components/ui/button'
 import db from '@/db/db'
 import { fetchData } from '@/db/fetchData'
@@ -13,6 +14,7 @@ export default async function Home() {
   return (
     <main>
       <FetchButton />
+      <FetchButtonTemplate />
       {/* <div className="flex flex-col items-start justify-start gap-6 p-6 max-w-lg mx-auto bg-white shadow-lg rounded-lg">
         <h1 className="text-4xl font-extrabold text-center text-blue-600 my-6">
           Todo List

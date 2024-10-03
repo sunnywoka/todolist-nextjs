@@ -5,7 +5,7 @@ import db from './db'
 
 export async function fetchData() {
   const response = await fetch(
-    'https://0c83-125-238-232-95.ngrok-free.app/api/organizations'
+    'https://0ab8-125-238-232-95.ngrok-free.app/api/organizations'
   )
   const organizations = (await response.json()) as Organization[]
   for (const organization of organizations) {
