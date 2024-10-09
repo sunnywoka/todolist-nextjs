@@ -5,7 +5,7 @@ import db from './db'
 
 export async function fetchTemplateData() {
   const response = await fetch(
-    'https://0ab8-125-238-232-95.ngrok-free.app/api/templates'
+    'https://f857-101-53-219-30.ngrok-free.app/api/templates'
   )
   const templateTypes = (await response.json()) as TemplateType[]
   for (const templateType of templateTypes) {
